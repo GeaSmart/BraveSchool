@@ -53,6 +53,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04. Models", "04. Models", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Domain", "src\Services\Catalog\Catalog.Domain\Catalog.Domain.csproj", "{9559B109-14AF-460A-8B5E-7E50AB566A0F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Persistence.Database", "src\Services\Catalog\Catalog.Persistence.Database\Catalog.Persistence.Database.csproj", "{2C9C7632-B1D3-4E10-971F-A039E5914FE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{9559B109-14AF-460A-8B5E-7E50AB566A0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9559B109-14AF-460A-8B5E-7E50AB566A0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9559B109-14AF-460A-8B5E-7E50AB566A0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C9C7632-B1D3-4E10-971F-A039E5914FE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C9C7632-B1D3-4E10-971F-A039E5914FE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C9C7632-B1D3-4E10-971F-A039E5914FE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C9C7632-B1D3-4E10-971F-A039E5914FE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -94,6 +100,7 @@ Global
 		{89E2F509-21FF-4509-B771-99A907373FED} = {EF0B5B7D-4C90-4E0B-8F69-CC7AD4FB2413}
 		{6D06F700-190A-464A-BE90-44D26E1E3183} = {EF0B5B7D-4C90-4E0B-8F69-CC7AD4FB2413}
 		{9559B109-14AF-460A-8B5E-7E50AB566A0F} = {FC027C36-8EC3-44D2-92F5-656E9A7B769A}
+		{2C9C7632-B1D3-4E10-971F-A039E5914FE1} = {1E8069AE-925A-41C9-AC56-631045FBBC81}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FB0B206C-6F9A-4546-AAE9-2A032C5E2AB9}
