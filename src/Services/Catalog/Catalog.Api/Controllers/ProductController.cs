@@ -1,6 +1,7 @@
 using Catalog.Service.EventHandlers.Commands;
 using Catalog.Service.Queries;
 using Catalog.Service.Queries.DTOs;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Service.Common.Collection;
 
@@ -12,11 +13,14 @@ namespace Catalog.Api.Controllers
     {
         private readonly ILogger<ProductController> _logger;
         private readonly IProductQueryService productQueryService;
+        private readonly IMediator mediator;
 
-        public ProductController(ILogger<ProductController> logger, IProductQueryService productQueryService)
+        public ProductController(ILogger<ProductController> logger, IProductQueryService productQueryService
+                                , IMediator mediator)
         {
             _logger = logger;
             this.productQueryService = productQueryService;
+            this.mediator = mediator;
         }
 
         //-- Route: /products
@@ -39,9 +43,10 @@ namespace Catalog.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ProductDto> Create(ProductCreateCommand command)
+        public async Task<IActionResult> Create(ProductCreateCommand command)
         {
-            return await productQueryService.GetAsync(id);
+            await mediator.Publish(command);
+            return Ok();
         }
     }
 }

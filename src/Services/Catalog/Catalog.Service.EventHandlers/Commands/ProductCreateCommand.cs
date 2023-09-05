@@ -1,6 +1,8 @@
-﻿namespace Catalog.Service.EventHandlers.Commands
+﻿using MediatR;
+
+namespace Catalog.Service.EventHandlers.Commands
 {
-    public class ProductCreateCommand
+    public class ProductCreateCommand : INotification
     {
         public string Name { get; set; }
         public string Description { get; set; }
