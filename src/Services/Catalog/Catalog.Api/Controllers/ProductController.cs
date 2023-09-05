@@ -20,7 +20,7 @@ namespace Catalog.Api.Controllers
 
         //-- Route: /products
         [HttpGet]
-        public async Task<DataCollection<ProductDto>> GetAll(int page = 1, int take = 10, string ids = "")
+        public async Task<DataCollection<ProductDto>> GetAll(int page = 1, int take = 10, string? ids = null)
         {
             IEnumerable<int> productIds = null;
 
@@ -34,7 +34,7 @@ namespace Catalog.Api.Controllers
         [HttpGet("{id:int}")]
         public async Task<ProductDto> Get(int id)
         {
-            return await productQueryService.GetAsync(id);            
+            return await productQueryService.GetAsync(id);
         }
     }
 }
