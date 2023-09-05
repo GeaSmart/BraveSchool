@@ -1,3 +1,4 @@
+using Catalog.Service.EventHandlers.Commands;
 using Catalog.Service.Queries;
 using Catalog.Service.Queries.DTOs;
 using Microsoft.AspNetCore.Mvc;
@@ -33,6 +34,12 @@ namespace Catalog.Api.Controllers
         //-- Route: /products/1
         [HttpGet("{id:int}")]
         public async Task<ProductDto> Get(int id)
+        {
+            return await productQueryService.GetAsync(id);
+        }
+
+        [HttpPost]
+        public async Task<ProductDto> Create(ProductCreateCommand command)
         {
             return await productQueryService.GetAsync(id);
         }
