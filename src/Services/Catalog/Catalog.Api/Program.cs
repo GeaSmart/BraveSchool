@@ -1,4 +1,5 @@
 using Catalog.Persistence.Database;
+using Catalog.Service.Queries;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
         x => x.MigrationsHistoryTable("__EFMigrationsHistory", "Catalog")
     )
 );
+
+//Registering my services
+builder.Services.AddTransient<IProductQueryService, ProductQueryService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
