@@ -65,7 +65,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service.Common.Mapping", "s
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service.Common.Paging", "src\Services\Common\Service.Common.Paging\Service.Common.Paging.csproj", "{ABD19F1F-0DC0-45B7-8E73-78D854B22F37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Service.EventHandlers", "src\Services\Catalog\Catalog.Service.EventHandlers\Catalog.Service.EventHandlers.csproj", "{954BA37F-F2E3-4152-98A4-F253D40E5077}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Service.EventHandlers", "src\Services\Catalog\Catalog.Service.EventHandlers\Catalog.Service.EventHandlers.csproj", "{954BA37F-F2E3-4152-98A4-F253D40E5077}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05. Common", "05. Common", "{B2F726C6-2C48-4C6E-B467-C53580DED07B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Common", "src\Services\Catalog\Catalog.Common\Catalog.Common.csproj", "{0B434D18-F347-4950-86CE-2E01370B6873}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +109,10 @@ Global
 		{954BA37F-F2E3-4152-98A4-F253D40E5077}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{954BA37F-F2E3-4152-98A4-F253D40E5077}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{954BA37F-F2E3-4152-98A4-F253D40E5077}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B434D18-F347-4950-86CE-2E01370B6873}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B434D18-F347-4950-86CE-2E01370B6873}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B434D18-F347-4950-86CE-2E01370B6873}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B434D18-F347-4950-86CE-2E01370B6873}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -139,6 +147,8 @@ Global
 		{A48870A3-5C2E-4375-9FEC-B4D9388F929E} = {078EFC3E-E930-41A6-9E21-8ED50D96BF53}
 		{ABD19F1F-0DC0-45B7-8E73-78D854B22F37} = {078EFC3E-E930-41A6-9E21-8ED50D96BF53}
 		{954BA37F-F2E3-4152-98A4-F253D40E5077} = {3DE2040B-BAE9-4A8D-8774-A67C0696BD08}
+		{B2F726C6-2C48-4C6E-B467-C53580DED07B} = {AA16182E-3712-4D15-A4A8-93B56BEC9916}
+		{0B434D18-F347-4950-86CE-2E01370B6873} = {B2F726C6-2C48-4C6E-B467-C53580DED07B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FB0B206C-6F9A-4546-AAE9-2A032C5E2AB9}
