@@ -5,6 +5,8 @@ using System.Reflection;
 using Common.Logging;
 using HealthChecks.UI.Client;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,8 +26,7 @@ builder.Services.AddTransient<IProductQueryService, ProductQueryService>();
 //Registering health checks services
 builder.Services.AddHealthChecks()
     .AddCheck("selfcheck", () => HealthCheckResult.Healthy())
-    .AddDbContextCheck<ApplicationDbContext>();
-
+    .AddDbContextCheck<ApplicationDbContext>(typeof(ApplicationDbContext).Name);
 
 
 builder.Services.AddControllers();
@@ -53,8 +54,9 @@ app.UseAuthorization();
 app.MapControllers();
 
 //Configuring health checks
-app.MapHealthChecks("/healthcheck", new()
+app.MapHealthChecks("/healthcheck", new HealthCheckOptions()
 {
+    Predicate = _ => true,
     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
 });
 
