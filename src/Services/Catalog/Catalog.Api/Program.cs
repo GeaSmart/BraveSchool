@@ -1,7 +1,6 @@
 using Catalog.Persistence.Database;
 using Catalog.Service.Queries;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using Common.Logging;
 using HealthChecks.UI.Client;
