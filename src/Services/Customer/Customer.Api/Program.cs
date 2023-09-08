@@ -1,4 +1,5 @@
 using Customer.Persistence.Database;
+using Customer.Service.Queries;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
         x => x.MigrationsHistoryTable("__EFMigrationsHistory", "Customer")
     )
 );
+
+//Registering my services
+builder.Services.AddTransient<IClientQueryService, ClientQueryService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
