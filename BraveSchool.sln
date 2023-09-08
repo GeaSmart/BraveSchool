@@ -87,6 +87,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer.Domain", "src\Serv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer.Persistence.Database", "src\Services\Customer\Customer.Persistence.Database\Customer.Persistence.Database.csproj", "{F51F0114-4C01-4121-A36E-405B16BE5762}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer.Api", "src\Services\Customer\Customer.Api\Customer.Api.csproj", "{EE89AF89-7B6D-41C9-8D07-18769D4F6DF3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -145,6 +147,10 @@ Global
 		{F51F0114-4C01-4121-A36E-405B16BE5762}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F51F0114-4C01-4121-A36E-405B16BE5762}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F51F0114-4C01-4121-A36E-405B16BE5762}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE89AF89-7B6D-41C9-8D07-18769D4F6DF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE89AF89-7B6D-41C9-8D07-18769D4F6DF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE89AF89-7B6D-41C9-8D07-18769D4F6DF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE89AF89-7B6D-41C9-8D07-18769D4F6DF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -188,6 +194,7 @@ Global
 		{7B94C5D5-BBD7-45A9-964A-5CC05F8ACF1B} = {F45A0FA3-1B48-4C3A-8209-0F781B98BD6B}
 		{1DC90B18-9CD3-4143-93B5-500472A94104} = {8096771B-FE62-481A-98FB-7BFFE25748EA}
 		{F51F0114-4C01-4121-A36E-405B16BE5762} = {631D18E8-F527-4B69-9513-18D3E018C020}
+		{EE89AF89-7B6D-41C9-8D07-18769D4F6DF3} = {CEBDB970-0596-43AD-A256-A28006AC5D21}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FB0B206C-6F9A-4546-AAE9-2A032C5E2AB9}

@@ -21,6 +21,7 @@ namespace Customer.Persistence.Database.Configuration
             {
                 clients.Add(new Client
                 {
+                    ClientId = i,
                     Name = $"Cliente {i}",
                 });
             }
