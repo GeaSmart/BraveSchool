@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.10">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -15,7 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\Common.Logging\Common.Logging.csproj" />
     <ProjectReference Include="..\Customer.Persistence.Database\Customer.Persistence.Database.csproj" />
+    <ProjectReference Include="..\Customer.Service.EventHandlers\Customer.Service.EventHandlers.csproj" />
     <ProjectReference Include="..\Customer.Service.Queries\Customer.Service.Queries.csproj" />
   </ItemGroup>
 

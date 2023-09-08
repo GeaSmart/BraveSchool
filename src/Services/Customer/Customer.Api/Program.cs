@@ -1,6 +1,8 @@
 using Customer.Persistence.Database;
 using Customer.Service.Queries;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
+using Common.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +17,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 );
 
 //Registering my services
+builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(Assembly.Load("Customer.Service.EventHandlers")));
 builder.Services.AddTransient<IClientQueryService, ClientQueryService>();
 
 builder.Services.AddControllers();
@@ -23,12 +26,18 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+var loggerFactory = app.Services.GetRequiredService<ILoggerFactory>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    //-- We should log in production, but this is for testing purposes
+    loggerFactory.AddSyslog(
+        builder.Configuration.GetValue<string>("Papertrail:host"),
+        builder.Configuration.GetValue<int>("Papertrail:port")
+    );
 }
 
 app.UseAuthorization();
