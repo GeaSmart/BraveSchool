@@ -94,5 +94,72 @@ namespace Catalog.Tests
             //Verify
             //it is on the annotation ExpectedException
         }
+
+        [TestMethod]
+        public void AddStockWhenProductExists()
+        {
+            //Prepare
+            var context = ApplicationDbContextInMemory.Get();
+            var logger = Logger.Get();
+
+            var productInStockId = 3;
+            var productId = 3;
+
+            context.Stocks.Add(
+                new ProductInStock
+                {
+                    ProductInStockId = productInStockId,
+                    ProductId = productId,
+                    Stock = 10
+                }
+            );
+            context.SaveChanges();
+
+            //Test
+            var handler = new ProductInStockUpdateStockEventHandler(context, logger);
+
+            handler.Handle(new ProductInStockUpdateStockCommand
+            {
+                Items = new List<ProductInStockUpdateItem>(){
+                    new ProductInStockUpdateItem {
+                        ProductId = productId,
+                        Stock = 5, //le sumo 5 al stock actual de 10
+                        Action = ProductInStockAction.Add
+                    }
+                }
+            }, new CancellationToken()).Wait();
+
+            //Verify
+            var stockInDb = context.Stocks.SingleOrDefault(x => x.ProductId == productId).Stock;
+            Assert.AreEqual(stockInDb, 15);
+        }
+
+        [TestMethod]
+        public void AddStockWhenProductNotExists()
+        {
+            //Prepare
+            var context = ApplicationDbContextInMemory.Get();
+            var logger = Logger.Get();
+
+            var productId = 4;
+
+            //Test
+            var handler = new ProductInStockUpdateStockEventHandler(context, logger);
+
+            handler.Handle(new ProductInStockUpdateStockCommand
+            {
+                Items = new List<ProductInStockUpdateItem>(){
+                    new ProductInStockUpdateItem {
+                        ProductId = productId,
+                        Stock = 5, //añado 5 de stock a producto que no existe aún
+                        Action = ProductInStockAction.Add
+                    }
+                }
+            }, new CancellationToken()).Wait();
+
+            //Verify
+            var stockInDb = context.Stocks.SingleOrDefault(x => x.ProductId == productId).Stock;
+            Assert.AreEqual(stockInDb, 5);
+        }
     }
 }
