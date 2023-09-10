@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection;
 
 namespace Catalog.Api.Controllers
 {
@@ -16,7 +17,8 @@ namespace Catalog.Api.Controllers
         [HttpGet]
         public string Get()
         {
-            return "Running...";
+            var project = Assembly.GetEntryAssembly().GetName().Name;
+            return $"{project} running...";
         }
     }
 }
