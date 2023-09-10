@@ -3,6 +3,8 @@ using Customer.Service.Queries;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using Common.Logging;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
+using HealthChecks.UI.Client;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +21,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 //Registering my services
 builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(Assembly.Load("Customer.Service.EventHandlers")));
 builder.Services.AddTransient<IClientQueryService, ClientQueryService>();
+//Registering health checks services
+builder.Services.AddHealthChecks()
+    .AddCheck("selfcheck", () => HealthCheckResult.Healthy())
+    .AddDbContextCheck<ApplicationDbContext>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -43,5 +49,11 @@ if (app.Environment.IsDevelopment())
 app.UseAuthorization();
 
 app.MapControllers();
+
+//Configuring health checks
+app.MapHealthChecks("/healthcheck", new()
+{
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+});
 
 app.Run();
