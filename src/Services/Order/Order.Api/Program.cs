@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Order.Persistence.Database;
+using Order.Service.Queries;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
         x => x.MigrationsHistoryTable("__EFMigrationsHistory", "Order")
     )
 );
+
+//Registering my services
+builder.Services.AddTransient<IOrderQueryService, OrderQueryService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
