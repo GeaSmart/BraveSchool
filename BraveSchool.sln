@@ -97,15 +97,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05. Common", "05. Common", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06. Testing", "06. Testing", "{5F527875-2B70-44F3-870C-7E825E24A357}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Domain", "src\Services\Order\Order.Domain\Order.Domain.csproj", "{C994EF5C-7BA2-458F-866E-E1A3D129BF11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.Domain", "src\Services\Order\Order.Domain\Order.Domain.csproj", "{C994EF5C-7BA2-458F-866E-E1A3D129BF11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Common", "src\Services\Order\Order.Common\Order.Common.csproj", "{9D2A149B-ECCA-4613-8EC2-251889A1D150}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.Common", "src\Services\Order\Order.Common\Order.Common.csproj", "{9D2A149B-ECCA-4613-8EC2-251889A1D150}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Persistence.Database", "src\Services\Order\Order.Persistence.Database\Order.Persistence.Database.csproj", "{C4E0C6A0-99E2-4BAE-843D-69B82FB8E75D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.Persistence.Database", "src\Services\Order\Order.Persistence.Database\Order.Persistence.Database.csproj", "{C4E0C6A0-99E2-4BAE-843D-69B82FB8E75D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Api", "src\Services\Order\Order.Api\Order.Api.csproj", "{E7127CD8-242E-4C7A-AB30-3E2778E657C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.Api", "src\Services\Order\Order.Api\Order.Api.csproj", "{E7127CD8-242E-4C7A-AB30-3E2778E657C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Service.Queries", "src\Services\Order\Order.Service.Queries\Order.Service.Queries.csproj", "{CB5D9AC7-573C-430B-9247-9748E21FAA47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.Service.Queries", "src\Services\Order\Order.Service.Queries\Order.Service.Queries.csproj", "{CB5D9AC7-573C-430B-9247-9748E21FAA47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Service.EventHandlers", "src\Services\Order\Order.Service.EventHandlers\Order.Service.EventHandlers.csproj", "{C0BDF3F5-01C7-4D87-9FCE-8894D200B92F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -197,6 +199,10 @@ Global
 		{CB5D9AC7-573C-430B-9247-9748E21FAA47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB5D9AC7-573C-430B-9247-9748E21FAA47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB5D9AC7-573C-430B-9247-9748E21FAA47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0BDF3F5-01C7-4D87-9FCE-8894D200B92F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0BDF3F5-01C7-4D87-9FCE-8894D200B92F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0BDF3F5-01C7-4D87-9FCE-8894D200B92F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0BDF3F5-01C7-4D87-9FCE-8894D200B92F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -250,6 +256,7 @@ Global
 		{C4E0C6A0-99E2-4BAE-843D-69B82FB8E75D} = {89E2F509-21FF-4509-B771-99A907373FED}
 		{E7127CD8-242E-4C7A-AB30-3E2778E657C8} = {1BF6BE94-E802-4305-9B51-15FBFF9AB23D}
 		{CB5D9AC7-573C-430B-9247-9748E21FAA47} = {D524E31C-679E-417B-8D7C-4FD8F979C9FF}
+		{C0BDF3F5-01C7-4D87-9FCE-8894D200B92F} = {D524E31C-679E-417B-8D7C-4FD8F979C9FF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FB0B206C-6F9A-4546-AAE9-2A032C5E2AB9}
