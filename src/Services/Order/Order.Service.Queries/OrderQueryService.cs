@@ -9,7 +9,7 @@ namespace Order.Service.Queries
 {
     public interface IOrderQueryService
     {
-        Task<DataCollection<OrderDto>> GetAllAsync(int page, int take, IEnumerable<int> orders = null);
+        Task<DataCollection<OrderDto>> GetAllAsync(int page, int take);
         Task<OrderDto> GetAsync(int id);
     }
     public class OrderQueryService : IOrderQueryService
@@ -21,10 +21,10 @@ namespace Order.Service.Queries
             this.context = context;
         }
 
-        public async Task<DataCollection<OrderDto>> GetAllAsync(int page, int take, IEnumerable<int> orders = null)
+        public async Task<DataCollection<OrderDto>> GetAllAsync(int page, int take)
         {
             var collection = await context.Orders
-                .Where(x => orders == null || orders.Contains(x.OrderId))
+                .Include(x => x.Items)
                 .OrderBy(x => x.OrderId)
                 .GetPagedAsync(page, take);
 
@@ -33,7 +33,10 @@ namespace Order.Service.Queries
 
         public async Task<OrderDto> GetAsync(int id)
         {
-            var order = await context.Orders.SingleOrDefaultAsync(x => x.OrderId == id);
+            var order = await context.Orders
+                .Include(x => x.Items)
+                .SingleOrDefaultAsync(x => x.OrderId == id);
+
             return order.MapTo<OrderDto>();
         }
     }

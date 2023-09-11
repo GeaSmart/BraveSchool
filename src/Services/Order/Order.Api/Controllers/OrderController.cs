@@ -20,14 +20,9 @@ namespace Order.Api.Controllers
 
         //-- Route: /orders
         [HttpGet]
-        public async Task<DataCollection<OrderDto>> GetAll(int page = 1, int take = 10, string? ids = null)
-        {
-            IEnumerable<int> orderIds = null;
-
-            if (!string.IsNullOrEmpty(ids))
-                orderIds = ids.Split(',').Select(x => Convert.ToInt32(x));
-
-            return await orderQueryService.GetAllAsync(page, take, orderIds);
+        public async Task<DataCollection<OrderDto>> GetAll(int page = 1, int take = 10)
+        {            
+            return await orderQueryService.GetAllAsync(page, take);
         }
 
         //-- Route: /orders/1
