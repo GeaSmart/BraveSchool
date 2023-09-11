@@ -9,7 +9,7 @@ namespace Order.Persistence.Database
         {
 
         }
-
+        public DbSet<Order.Domain.Order> Orders { get; set; }
         public DbSet<Order.Domain.OrderDetail> OrderDetails { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
