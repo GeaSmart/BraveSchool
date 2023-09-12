@@ -1,3 +1,4 @@
+using Common.Logging;
 using Microsoft.EntityFrameworkCore;
 using Order.Persistence.Database;
 using Order.Service.Queries;
@@ -23,12 +24,18 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+var loggerFactory = app.Services.GetRequiredService<ILoggerFactory>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    //-- We should log in production, but this is for testing purposes
+    loggerFactory.AddSyslog(
+        builder.Configuration.GetValue<string>("Papertrail:host"),
+        builder.Configuration.GetValue<int>("Papertrail:port")
+    );
 }
 
 app.UseAuthorization();
