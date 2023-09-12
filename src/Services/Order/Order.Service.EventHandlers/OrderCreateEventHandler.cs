@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Logging;
 using Order.Persistence.Database;
 using Order.Service.EventHandlers.Commands;
+using Order.Service.Proxies.Catalog;
+using Order.Service.Proxies.Catalog.Commands;
 using static Order.Common.Enums;
 
 namespace Order.Service.EventHandlers
@@ -10,11 +12,13 @@ namespace Order.Service.EventHandlers
     {
         private readonly ApplicationDbContext context;
         private readonly ILogger<OrderCreateEventHandler> logger;
+        private readonly ICatalogProxy catalogProxy;
 
-        public OrderCreateEventHandler(ApplicationDbContext context, ILogger<OrderCreateEventHandler> logger)
+        public OrderCreateEventHandler(ApplicationDbContext context, ILogger<OrderCreateEventHandler> logger, ICatalogProxy catalogProxy)
         {
             this.context = context;
             this.logger = logger;
+            this.catalogProxy = catalogProxy;
         }
 
         public async Task Handle(OrderCreateCommand notification, CancellationToken cancellationToken)
@@ -41,6 +45,13 @@ namespace Order.Service.EventHandlers
                 //Update stocks
                 logger.LogInformation("-- Stocks sync started");
                 //Here this microservice communicates with Catalog
+                await catalogProxy.UpdateStockAsync(new ProductInStockUpdateStockCommand { 
+                    Items = notification.Items.Select(x=>new ProductInStockUpdateItem { 
+                        Action = ProductInStockAction.Substract,
+                        ProductId = x.ProductId,
+                        Stock = x.Quantity
+                    })
+                });
 
                 await transaction.CommitAsync();
             }
