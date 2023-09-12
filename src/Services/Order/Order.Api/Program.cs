@@ -1,7 +1,9 @@
 using Common.Logging;
 using Microsoft.EntityFrameworkCore;
 using Order.Persistence.Database;
+using Order.Service.Proxies;
 using Order.Service.Queries;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +18,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 );
 
 //Registering my services
+builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(Assembly.Load("Order.Service.EventHandlers")));
 builder.Services.AddTransient<IOrderQueryService, OrderQueryService>();
+//API Urls
+builder.Services.Configure<ApiUrls>(options => builder.Configuration.GetSection("ApiUrls").Bind(options));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
