@@ -54,6 +54,7 @@ namespace Order.Service.EventHandlers
                 });
 
                 await transaction.CommitAsync();
+                logger.LogInformation("-- Order creation finished.");
             }
 
         }
