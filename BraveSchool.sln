@@ -113,6 +113,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.Service.Proxies", "sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.Domain", "src\Services\Identity\Identity.Domain\Identity.Domain.csproj", "{57580DDE-5EA8-427B-8FBF-AE0ABCE90BD2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.Persistence.Database", "src\Services\Identity\Identity.Persistence.Database\Identity.Persistence.Database.csproj", "{BBD2C1D1-6426-4381-9CF1-704B10237580}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -215,6 +217,10 @@ Global
 		{57580DDE-5EA8-427B-8FBF-AE0ABCE90BD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57580DDE-5EA8-427B-8FBF-AE0ABCE90BD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57580DDE-5EA8-427B-8FBF-AE0ABCE90BD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBD2C1D1-6426-4381-9CF1-704B10237580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBD2C1D1-6426-4381-9CF1-704B10237580}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBD2C1D1-6426-4381-9CF1-704B10237580}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBD2C1D1-6426-4381-9CF1-704B10237580}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -271,6 +277,7 @@ Global
 		{C0BDF3F5-01C7-4D87-9FCE-8894D200B92F} = {D524E31C-679E-417B-8D7C-4FD8F979C9FF}
 		{63591DD5-FFC4-4A64-B4F7-B5A7F66F9D98} = {D524E31C-679E-417B-8D7C-4FD8F979C9FF}
 		{57580DDE-5EA8-427B-8FBF-AE0ABCE90BD2} = {0AA799F7-2C1B-435D-B1F4-CB556722B69E}
+		{BBD2C1D1-6426-4381-9CF1-704B10237580} = {07181B53-8589-4F09-945A-337682A81D21}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FB0B206C-6F9A-4546-AAE9-2A032C5E2AB9}
