@@ -115,6 +115,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.Domain", "src\Serv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.Persistence.Database", "src\Services\Identity\Identity.Persistence.Database\Identity.Persistence.Database.csproj", "{BBD2C1D1-6426-4381-9CF1-704B10237580}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.Api", "src\Services\Identity\Identity.Api\Identity.Api.csproj", "{9DBBBCF8-4DDC-41F8-B2CA-A3A9AC541435}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -221,6 +223,10 @@ Global
 		{BBD2C1D1-6426-4381-9CF1-704B10237580}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBD2C1D1-6426-4381-9CF1-704B10237580}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBD2C1D1-6426-4381-9CF1-704B10237580}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DBBBCF8-4DDC-41F8-B2CA-A3A9AC541435}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DBBBCF8-4DDC-41F8-B2CA-A3A9AC541435}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DBBBCF8-4DDC-41F8-B2CA-A3A9AC541435}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DBBBCF8-4DDC-41F8-B2CA-A3A9AC541435}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -278,6 +284,7 @@ Global
 		{63591DD5-FFC4-4A64-B4F7-B5A7F66F9D98} = {D524E31C-679E-417B-8D7C-4FD8F979C9FF}
 		{57580DDE-5EA8-427B-8FBF-AE0ABCE90BD2} = {0AA799F7-2C1B-435D-B1F4-CB556722B69E}
 		{BBD2C1D1-6426-4381-9CF1-704B10237580} = {07181B53-8589-4F09-945A-337682A81D21}
+		{9DBBBCF8-4DDC-41F8-B2CA-A3A9AC541435} = {F0C3D7CF-4A3B-4B14-AD36-CA23F966718B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FB0B206C-6F9A-4546-AAE9-2A032C5E2AB9}
