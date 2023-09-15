@@ -36,5 +36,19 @@ namespace Identity.Api.Controllers
             }
             return BadRequest();
         }
+
+        [HttpPost("authentication")]
+        public async Task<IActionResult> Authentication(UserLoginCommand command)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await mediator.Send(command);
+                if (!string.IsNullOrEmpty(result.AccessToken))                
+                    return BadRequest("Access denied, check your credentials.");                
+
+                return Ok(result);
+            }
+            return BadRequest();
+        }
     }
 }
