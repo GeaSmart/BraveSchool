@@ -117,6 +117,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.Persistence.Databa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.Api", "src\Services\Identity\Identity.Api\Identity.Api.csproj", "{9DBBBCF8-4DDC-41F8-B2CA-A3A9AC541435}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.Service.EventHandlers", "src\Services\Identity\Identity.Service.EventHandlers\Identity.Service.EventHandlers.csproj", "{C45EF3C7-8543-4C7D-BB18-72C89F496BC8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -227,6 +229,10 @@ Global
 		{9DBBBCF8-4DDC-41F8-B2CA-A3A9AC541435}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DBBBCF8-4DDC-41F8-B2CA-A3A9AC541435}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DBBBCF8-4DDC-41F8-B2CA-A3A9AC541435}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C45EF3C7-8543-4C7D-BB18-72C89F496BC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C45EF3C7-8543-4C7D-BB18-72C89F496BC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C45EF3C7-8543-4C7D-BB18-72C89F496BC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C45EF3C7-8543-4C7D-BB18-72C89F496BC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -285,6 +291,7 @@ Global
 		{57580DDE-5EA8-427B-8FBF-AE0ABCE90BD2} = {0AA799F7-2C1B-435D-B1F4-CB556722B69E}
 		{BBD2C1D1-6426-4381-9CF1-704B10237580} = {07181B53-8589-4F09-945A-337682A81D21}
 		{9DBBBCF8-4DDC-41F8-B2CA-A3A9AC541435} = {F0C3D7CF-4A3B-4B14-AD36-CA23F966718B}
+		{C45EF3C7-8543-4C7D-BB18-72C89F496BC8} = {A710B030-2C03-433B-BD38-35D834F0CEB2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FB0B206C-6F9A-4546-AAE9-2A032C5E2AB9}
