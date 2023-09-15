@@ -2,6 +2,7 @@ using Identity.Domain;
 using Identity.Persistence.Database;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
         x => x.MigrationsHistoryTable("__EFMigrationsHistory", "Identity")
     )
 );
+
+//Registering my services
+builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(Assembly.Load("Identity.Service.EventHandlers")));
 
 // Identity
 builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
