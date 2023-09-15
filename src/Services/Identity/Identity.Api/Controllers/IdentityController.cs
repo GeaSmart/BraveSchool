@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Identity.Api.Controllers
 {
     [ApiController]
-    [Route("login")]
+    [Route("identity")]
     public class IdentityController : ControllerBase
     {
         private readonly ILogger<IdentityController> logger;
@@ -23,7 +23,7 @@ namespace Identity.Api.Controllers
             this.mediator = mediator;
         }
 
-        [HttpPost]
+        [HttpPost("signup")]
         public async Task<IActionResult> Create(UserCreateCommand command)
         {
             if (ModelState.IsValid)
@@ -37,13 +37,13 @@ namespace Identity.Api.Controllers
             return BadRequest();
         }
 
-        [HttpPost("authentication")]
+        [HttpPost("login")]
         public async Task<IActionResult> Authentication(UserLoginCommand command)
         {
             if (ModelState.IsValid)
             {
                 var result = await mediator.Send(command);
-                if (!string.IsNullOrEmpty(result.AccessToken))                
+                if (string.IsNullOrEmpty(result.AccessToken))                
                     return BadRequest("Access denied, check your credentials.");                
 
                 return Ok(result);
