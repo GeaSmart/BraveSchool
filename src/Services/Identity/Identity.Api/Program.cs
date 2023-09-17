@@ -1,5 +1,6 @@
 using Identity.Domain;
 using Identity.Persistence.Database;
+using Identity.Service.Queries;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -37,6 +38,9 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequiredLength = 6;
     options.Password.RequiredUniqueChars = 1;
 });
+
+//Registering my services
+builder.Services.AddTransient<IUserQueryService, UserQueryService>();
 
 builder.Services.AddControllers();
 
