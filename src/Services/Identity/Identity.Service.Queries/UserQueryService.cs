@@ -9,7 +9,7 @@ namespace Identity.Service.Queries
 {
     public interface IUserQueryService
     {
-        Task<DataCollection<UserDto>> GetAllAsync(int page, int take, IEnumerable<string> users = null);
+        Task<DataCollection<UserDto>> GetAllAsync(int page, int take, IEnumerable<string>? users = null);
         Task<UserDto> GetAsync(string id);
     }
 
@@ -22,7 +22,7 @@ namespace Identity.Service.Queries
             this.context = context;
         }
 
-        public async Task<DataCollection<UserDto>> GetAllAsync(int page, int take, IEnumerable<string> users = null)
+        public async Task<DataCollection<UserDto>> GetAllAsync(int page, int take, IEnumerable<string>? users = null)
         {
             var collection = await context.Users
                 .Where(x => users == null || users.Contains(x.Id))
