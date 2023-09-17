@@ -31,12 +31,17 @@ namespace Identity.Service.EventHandlers
         public async Task<IdentityAccess> Handle(UserLoginCommand notification, CancellationToken cancellationToken)
         {
             var result = new IdentityAccess();
-            var user = await context.Users.SingleAsync(x => x.Email == notification.Email);
-            var response = await signInManager.CheckPasswordSignInAsync(user, notification.Password, false);
+            var user = await context.Users.SingleOrDefaultAsync(x => x.Email == notification.Email);
 
-            if (response.Succeeded)            
-                result = await GenerateToken(user, result);
-            
+            if(user != null)
+            {
+                var response = await signInManager.
+                        CheckPasswordSignInAsync(user, notification.Password, false);
+
+                if (response.Succeeded)
+                    result = await GenerateToken(user, result);
+            }
+
             return result;
         }
 
