@@ -1,4 +1,6 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Order.Service.EventHandlers.Commands;
 using Order.Service.Queries;
@@ -7,6 +9,7 @@ using Service.Common.Collection;
 
 namespace Order.Api.Controllers
 {
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     [Route("orders")]
     public class OrderController : ControllerBase
