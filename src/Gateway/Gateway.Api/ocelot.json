@@ -131,7 +131,7 @@
         }
       ],
       "UpstreamPathTemplate": "/users",
-      "UpstreamHttpMethod": [ "Get"]
+      "UpstreamHttpMethod": [ "Get" ]
     },
     //-----------------------------------------------
     {
@@ -144,10 +144,8 @@
         }
       ],
       "UpstreamPathTemplate": "/users/{id}",
-      "UpstreamHttpMethod": [ "Get"]
+      "UpstreamHttpMethod": [ "Get" ]
     }
-    //-----------------------------------------------
-
   ],
   "GlobalConfiguration": {
     "BaseUrl": "https://localhost:5000"
