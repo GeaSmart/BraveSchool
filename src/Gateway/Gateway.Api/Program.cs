@@ -1,3 +1,4 @@
+using Gateway.Api.Aggregators;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 
@@ -5,7 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 //Ocelot service
 builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
-builder.Services.AddOcelot();
+builder.Services.AddOcelot()
+    .AddSingletonDefinedAggregator<CustomAggregator>();
 
 // Add services to the container.
 

@@ -51,7 +51,8 @@
         }
       ],
       "UpstreamPathTemplate": "/clients",
-      "UpstreamHttpMethod": [ "Get", "Post" ]
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "Key": "clients-list"
     },
     //-----------------------------------------------
     {
@@ -64,7 +65,7 @@
         }
       ],
       "UpstreamPathTemplate": "/clients/{id}",
-      "UpstreamHttpMethod": [ "Get" ]
+      "UpstreamHttpMethod": [ "Get" ]      
     },
 
     //====================ORDER=======================
@@ -78,7 +79,8 @@
         }
       ],
       "UpstreamPathTemplate": "/orders",
-      "UpstreamHttpMethod": [ "Get", "Post" ]
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "Key": "orders-list"
     },
     //-----------------------------------------------
     {
@@ -91,7 +93,7 @@
         }
       ],
       "UpstreamPathTemplate": "/orders/{id}",
-      "UpstreamHttpMethod": [ "Get" ]
+      "UpstreamHttpMethod": [ "Get" ]      
     },
 
     //===================IDENTITY=====================
@@ -145,6 +147,16 @@
       ],
       "UpstreamPathTemplate": "/users/{id}",
       "UpstreamHttpMethod": [ "Get" ]
+    }
+  ],
+  "Aggregates": [
+    {
+      "RouteKeys": [
+        "orders-list",
+        "clients-list"
+      ],
+      "UpstreamPathTemplate": "/ordersWithClients",
+      "Aggregator": "CustomAggregator"
     }
   ],
   "GlobalConfiguration": {
