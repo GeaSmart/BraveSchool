@@ -21,4 +21,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Gateway.Models\Gateway.Models.csproj" />
+  </ItemGroup>
+
 </Project>

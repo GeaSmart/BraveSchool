@@ -1,4 +1,4 @@
-﻿namespace Gateway.Api.Models
+﻿namespace Gateway.Models.DTOs
 {
     public class ClientDto
     {

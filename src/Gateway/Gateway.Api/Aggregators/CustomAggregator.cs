@@ -3,8 +3,9 @@ using Newtonsoft.Json;
 using Ocelot.Middleware;
 using Ocelot.Multiplexer;
 using System.Net;
-using Gateway.Api.Models;
 using System.Net.Http.Headers;
+using Gateway.Models.DTOs;
+using Gateway.Api.Models;
 
 namespace Gateway.Api.Aggregators
 {
