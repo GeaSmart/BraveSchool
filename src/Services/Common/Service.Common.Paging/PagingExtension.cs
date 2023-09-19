@@ -20,7 +20,7 @@ namespace Service.Common.Paging
             };
 
             if (result.Total > 0)
-                result.Pages = Convert.ToInt32(Math.Ceiling(Convert.ToDecimal(result.Total / take)));
+                result.Pages = Convert.ToInt32(Math.Ceiling(Convert.ToDecimal(result.Total) / Convert.ToDecimal(take)));
 
             return result;
         }
