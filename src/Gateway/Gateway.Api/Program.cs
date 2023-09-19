@@ -7,7 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 //Ocelot service
 builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
 builder.Services.AddOcelot()
-    .AddSingletonDefinedAggregator<CustomAggregator>();
+    .AddSingletonDefinedAggregator<CustomAggregator>()
+    .AddSingletonDefinedAggregator<OrderFullAggregator>();
 
 // Add services to the container.
 

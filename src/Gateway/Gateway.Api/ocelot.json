@@ -15,6 +15,20 @@
     },
     //-----------------------------------------------
     {
+      "DownstreamPathTemplate": "/products?page=1&take=500",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 20000
+        }
+      ],
+      "UpstreamPathTemplate": "/products{everything}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "Key": "products-list"
+    },
+    //-----------------------------------------------
+    {
       "DownstreamPathTemplate": "/products/{id}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -51,7 +65,20 @@
         }
       ],
       "UpstreamPathTemplate": "/clients",
-      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+    },
+    //-----------------------------------------------
+    {
+      "DownstreamPathTemplate": "/clients?page=1&take=500",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 21000
+        }
+      ],
+      "UpstreamPathTemplate": "/clients{everything}",
+      "UpstreamHttpMethod": [ "Get"],
       "Key": "clients-list"
     },
     //-----------------------------------------------
@@ -65,7 +92,7 @@
         }
       ],
       "UpstreamPathTemplate": "/clients/{id}",
-      "UpstreamHttpMethod": [ "Get" ]      
+      "UpstreamHttpMethod": [ "Get" ]
     },
 
     //====================ORDER=======================
@@ -93,7 +120,8 @@
         }
       ],
       "UpstreamPathTemplate": "/orders/{id}",
-      "UpstreamHttpMethod": [ "Get" ]      
+      "UpstreamHttpMethod": [ "Get" ],
+      "Key": "order-item"
     },
 
     //===================IDENTITY=====================
@@ -157,6 +185,15 @@
       ],
       "UpstreamPathTemplate": "/ordersWithClients",
       "Aggregator": "CustomAggregator"
+    },
+    {
+      "RouteKeys": [
+        "order-item",
+        "clients-list",
+        "products-list"
+      ],
+      "UpstreamPathTemplate": "/ordersFull/{id}",
+      "Aggregator": "OrderFullAggregator"
     }
   ],
   "GlobalConfiguration": {
