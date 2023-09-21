@@ -57,8 +57,8 @@ namespace Client.Authentication.Pages
                     }
                 );
 
-                //return Redirect(ReturnBaseUrl + $"account/connect?access_token={result.AccessToken}");
-                return Redirect(ReturnBaseUrl + $"?access_token={result.AccessToken}");//temporary till the other client is ready
+                return Redirect(ReturnBaseUrl + $"account/connect?access_token={result.AccessToken}");
+                //return Redirect(ReturnBaseUrl + $"?access_token={result.AccessToken}");//temporary till the other client is ready
             }
         }
     }
