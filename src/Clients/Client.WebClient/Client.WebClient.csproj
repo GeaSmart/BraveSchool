@@ -10,4 +10,10 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.24.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Gateway.Models">
+      <HintPath>ModelsGateway\Gateway.Models.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

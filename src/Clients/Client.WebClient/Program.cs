@@ -1,4 +1,7 @@
+using Client.WebClient.Services;
+using Client.WebClient.Services.Config;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +10,12 @@ builder.Services.AddControllersWithViews();
 
 //Cookie authentication configuration
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+
+//Registering services
+builder.Services.AddSingleton(new ApiGatewayUrl(builder.Configuration.GetValue<string>("ApiGatewayUrl")));
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddHttpClient<IOrderService, OrderService>();
 
 var app = builder.Build();
 
