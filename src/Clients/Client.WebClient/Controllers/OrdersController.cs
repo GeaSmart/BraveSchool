@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Client.WebClient.Controllers
 {
     [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
-    public class OrderController : Controller
+    public class OrdersController : Controller
     {
         private readonly IOrderService orderService;
 
@@ -16,7 +16,7 @@ namespace Client.WebClient.Controllers
         [BindProperty(SupportsGet = true)]
         public int CurrentPage { get; set; } = 1;
 
-        public OrderController(IOrderService orderService)
+        public OrdersController(IOrderService orderService)
         {
             this.orderService = orderService;
         }

@@ -28,7 +28,7 @@ namespace Order.Service.Proxies.Catalog
                 Encoding.UTF8,
                 "application/json"
             );
-            var request = await httpClient.PutAsync($"{apiUrls.CatalogUrl}/stocks",content);
+            var request = await httpClient.PutAsync($"{apiUrls.CatalogUrl}stocks",content);
             request.EnsureSuccessStatusCode();
         }
     }
