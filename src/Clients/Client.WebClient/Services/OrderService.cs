@@ -3,7 +3,6 @@ using Gateway.Api.Models;
 using Gateway.Models.DTOs;
 using System.Text;
 using System.Text.Json;
-using static Gateway.Models.Enums;
 
 namespace Client.WebClient.Services
 {
@@ -16,8 +15,8 @@ namespace Client.WebClient.Services
 
     public class OrderService : IOrderService
     {
-        private readonly string _apiGatewayUrl;
-        private readonly HttpClient _httpClient;
+        private readonly string apiGatewayUrl;
+        private readonly HttpClient httpClient;
 
         public OrderService(
             HttpClient httpClient,
@@ -25,13 +24,13 @@ namespace Client.WebClient.Services
             IHttpContextAccessor httpContextAccessor)
         {
             httpClient.AddBearerToken(httpContextAccessor);
-            _httpClient = httpClient;
-            _apiGatewayUrl = apiGatewayUrl.Value;
+            this.httpClient = httpClient;
+            this.apiGatewayUrl = apiGatewayUrl.Value;
         }
 
         public async Task<DataCollection<OrderDto>> GetAllAsync(int page, int take)
         {
-            var request = await _httpClient.GetAsync($"{_apiGatewayUrl}ordersWithClients?page={page}&take={take}");
+            var request = await httpClient.GetAsync($"{apiGatewayUrl}ordersWithClients?page={page}&take={take}");
             request.EnsureSuccessStatusCode();
             
             return JsonSerializer.Deserialize<DataCollection<OrderDto>>(
@@ -45,7 +44,7 @@ namespace Client.WebClient.Services
 
         public async Task<OrderDto> GetAsync(int id)
         {
-            var request = await _httpClient.GetAsync($"{_apiGatewayUrl}orders/{id}");
+            var request = await httpClient.GetAsync($"{apiGatewayUrl}ordersFull/{id}");
             request.EnsureSuccessStatusCode();
 
             return JsonSerializer.Deserialize<OrderDto>(
@@ -65,7 +64,7 @@ namespace Client.WebClient.Services
                 "application/json"
             );
 
-            var request = await _httpClient.PostAsync($"{_apiGatewayUrl}orders", content);
+            var request = await httpClient.PostAsync($"{apiGatewayUrl}orders", content);
             request.EnsureSuccessStatusCode();
         }
     }

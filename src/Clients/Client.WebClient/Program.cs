@@ -16,6 +16,8 @@ builder.Services.AddSingleton(new ApiGatewayUrl(builder.Configuration.GetValue<s
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddHttpClient<IOrderService, OrderService>();
+builder.Services.AddHttpClient<ICustomerService, CustomerService>();
+builder.Services.AddHttpClient<ICatalogService, CatalogService>();
 
 var app = builder.Build();
 

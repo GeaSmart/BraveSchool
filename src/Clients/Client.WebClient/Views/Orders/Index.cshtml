@@ -13,7 +13,7 @@
 </div>
 
 <div class="text-center mt-4 mb-4">
-    <a asp-page="/Orders/Create" class="btn btn-primary text-light btn-lg">Crear nueva orden</a>
+    <a asp-controller="Orders" asp-action="Create" class="btn btn-primary text-light btn-lg">Crear nueva orden</a>
 </div>
 
 <table class="table">
@@ -31,7 +31,7 @@
         {
             <tr>
                 <td>
-                    <a href="~/orders/@item.OrderId">@item.OrderId</a>
+                    <a asp-controller="Orders" asp-action="Detail" asp-route-id="@item.OrderId">@item.OrderId</a>
                 </td>
                 <td>@item.Client.Name</td>
                 <td>@item.PaymentType</td>
@@ -49,7 +49,7 @@
             @for (var index = 1; index <= Model.Pages; index++)
             {
                 <li class="page-item @(index == Model.Page ? "active" : "")">
-                    <a class="page-link" asp-page="/Orders/Index" asp-route-currentpage="@index">@index</a>
+                    <a class="page-link" asp-controller="Orders" asp-action="Index" asp-route-currentpage="@index">@index</a>
                 </li>
             }
         </ul>
