@@ -29,7 +29,8 @@ namespace Client.WebClient.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var orders = await orderService.GetAllAsync(CurrentPage, 999);
+            //this can be improved, just getting 1000 records manually
+            var orders = await orderService.GetAllAsync(CurrentPage, 1000);
             return View(orders);
         }
 
@@ -43,8 +44,8 @@ namespace Client.WebClient.Controllers
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            var products = await catalogService.GetAllAsync(1, 999);
-            var clients = await customerService.GetAllAsync(1, 999);
+            var products = await catalogService.GetAllAsync(1, 1000);
+            var clients = await customerService.GetAllAsync(1, 1000);
             return View(new CreateOrderModel { Clients = clients, Products = products });
         }
 
