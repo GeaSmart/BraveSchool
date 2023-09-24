@@ -5,7 +5,7 @@ using Ocelot.Middleware;
 var builder = WebApplication.CreateBuilder(args);
 
 //Ocelot service
-builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
+builder.Configuration.AddJsonFile("ocelot.production.json", optional: false, reloadOnChange: true);
 builder.Services.AddOcelot()
     .AddSingletonDefinedAggregator<CustomAggregator>()
     .AddSingletonDefinedAggregator<OrderFullAggregator>();
