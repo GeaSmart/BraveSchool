@@ -30,6 +30,7 @@ namespace Common.Logging
         }
     }
 
+    //Class from the documentation
     public class SyslogLogger : ILogger
     {
         private const int SyslogFacility = 16;
