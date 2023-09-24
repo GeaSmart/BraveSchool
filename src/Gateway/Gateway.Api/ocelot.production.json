@@ -1,0 +1,202 @@
+{
+  "Routes": [
+    //===================CATALOG=====================
+    {
+      "DownstreamPathTemplate": "/products",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "https://bs-api-catalog.azurewebsites.net/",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/products",
+      "UpstreamhttpsMethod": [ "Get", "Post" ]
+    },
+    //-----------------------------------------------
+    {
+      "DownstreamPathTemplate": "/products?page=1&take=500",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "https://bs-api-catalog.azurewebsites.net/",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/products{everything}",
+      "UpstreamhttpsMethod": [ "Get" ],
+      "Key": "products-list"
+    },
+    //-----------------------------------------------
+    {
+      "DownstreamPathTemplate": "/products/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "https://bs-api-catalog.azurewebsites.net/",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/products/{id}",
+      "UpstreamhttpsMethod": [ "Get" ]
+    },
+    //-----------------------------------------------
+    {
+      "DownstreamPathTemplate": "/stocks",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "https://bs-api-catalog.azurewebsites.net/",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/stocks",
+      "UpstreamhttpsMethod": [ "Put" ]
+    },
+
+    //===================CUSTOMER=====================
+    {
+      "DownstreamPathTemplate": "/clients",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "https://bs-api-customer.azurewebsites.net/",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/clients",
+      "UpstreamhttpsMethod": [ "Get", "Post" ]
+    },
+    //-----------------------------------------------
+    {
+      "DownstreamPathTemplate": "/clients?page=1&take=500",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "https://bs-api-customer.azurewebsites.net/",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/clients{everything}",
+      "UpstreamhttpsMethod": [ "Get"],
+      "Key": "clients-list"
+    },
+    //-----------------------------------------------
+    {
+      "DownstreamPathTemplate": "/clients/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "https://bs-api-customer.azurewebsites.net/",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/clients/{id}",
+      "UpstreamhttpsMethod": [ "Get" ]
+    },
+
+    //====================ORDER=======================
+    {
+      "DownstreamPathTemplate": "/orders",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "https://bs-api-order.azurewebsites.net/",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/orders",
+      "UpstreamhttpsMethod": [ "Get", "Post" ],
+      "Key": "orders-list"
+    },
+    //-----------------------------------------------
+    {
+      "DownstreamPathTemplate": "/orders/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "https://bs-api-order.azurewebsites.net/",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/orders/{id}",
+      "UpstreamhttpsMethod": [ "Get" ],
+      "Key": "order-item"
+    },
+
+    //===================IDENTITY=====================
+    {
+      "DownstreamPathTemplate": "/identity/signup",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "https://bs-api-identity.azurewebsites.net/",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/identity/signup",
+      "UpstreamhttpsMethod": [ "Post" ]
+    },
+    //-----------------------------------------------
+    {
+      "DownstreamPathTemplate": "/identity/login",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "https://bs-api-identity.azurewebsites.net/",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/identity/login",
+      "UpstreamhttpsMethod": [ "Post" ]
+    },
+    //-----------------------------------------------
+    {
+      "DownstreamPathTemplate": "/users",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "https://bs-api-identity.azurewebsites.net/",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/users",
+      "UpstreamhttpsMethod": [ "Get" ]
+    },
+    //-----------------------------------------------
+    {
+      "DownstreamPathTemplate": "/users/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "https://bs-api-identity.azurewebsites.net/",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/users/{id}",
+      "UpstreamhttpsMethod": [ "Get" ]
+    }
+  ],
+  "Aggregates": [
+    {
+      "RouteKeys": [
+        "orders-list",
+        "clients-list"
+      ],
+      "UpstreamPathTemplate": "/ordersWithClients",
+      "Aggregator": "CustomAggregator"
+    },
+    {
+      "RouteKeys": [
+        "order-item",
+        "clients-list",
+        "products-list"
+      ],
+      "UpstreamPathTemplate": "/ordersFull/{id}",
+      "Aggregator": "OrderFullAggregator"
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://bs-api-gateway.azurewebsites.net/"
+  }
+}
