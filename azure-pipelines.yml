@@ -1,5 +1,5 @@
 trigger:
-- master #rama
+- master #git branch
 
 pool:
   vmImage: 'windows-2022'
@@ -22,7 +22,7 @@ steps:
   inputs:
     script: 'dotnet ef migrations script -i -o $(Build.ArtifactStagingDirectory)\migrate.sql --project $(proyecto)'
 - task: DotNetCoreCLI@2
-  displayName: 'Publishing App...'
+  displayName: 'Publishing App'
   inputs:
     command: 'publish'
     publishWebProjects: false
@@ -31,4 +31,4 @@ steps:
     zipAfterPublish: false
     modifyOutputPath: false
 - task: PublishBuildArtifacts@1
-  displayName: 'Publicando los artefactos en el directorio'
+  displayName: 'Publishing artifacts on the directory'
