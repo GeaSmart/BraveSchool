@@ -1,4 +1,6 @@
 using Gateway.Api.Aggregators;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 
@@ -19,6 +21,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+//console logging  
+builder.Logging.AddConsole();
 
 //Ocelot setting
 app.UseOcelot().Wait();
