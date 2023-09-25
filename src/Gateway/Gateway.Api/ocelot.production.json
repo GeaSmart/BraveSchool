@@ -78,7 +78,7 @@
         }
       ],
       "AddHeadersToRequest": {
-        "AccessToken": "Claims[AccessToken] > value[0] > |"
+        "AccessToken": "Claims[access_token] > value[0] > |"
       },
       "DelegatingHandlers": [
         "HeaderDelegatingHandler"
@@ -116,7 +116,7 @@
         }
       ],
       "AddHeadersToRequest": {
-        "AccessToken": "Claims[AccessToken] > value[0] > |"
+        "AccessToken": "Claims[access_token] > value[0] > |"
       },
       "DelegatingHandlers": [
         "HeaderDelegatingHandler"

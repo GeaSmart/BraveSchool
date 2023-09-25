@@ -14,12 +14,12 @@ namespace Gateway.Api.Handlers
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             IEnumerable<string> headerValues;
-            if (request.Headers.TryGetValues("AccessToken", out headerValues))
+            if (request.Headers.TryGetValues("access_token", out headerValues))
             {
                 string accessToken = headerValues.First();
 
                 request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-                request.Headers.Remove("AccessToken");
+                request.Headers.Remove("access_token");
             }
 
             return await base.SendAsync(request, cancellationToken);
