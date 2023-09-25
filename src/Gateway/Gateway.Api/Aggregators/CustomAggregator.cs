@@ -3,7 +3,6 @@ using Newtonsoft.Json;
 using Ocelot.Middleware;
 using Ocelot.Multiplexer;
 using System.Net;
-using System.Net.Http.Headers;
 using Gateway.Models.DTOs;
 using Gateway.Api.Models;
 using Newtonsoft.Json.Linq;
@@ -26,15 +25,15 @@ namespace Gateway.Api.Aggregators
             List<Header> header = new List<Header>();
             try
             {
-                var headers = responses.SelectMany(x => x.Items.DownstreamResponse().Headers).ToList();
+                //var headers = responses.SelectMany(x => x.Items.DownstreamResponse().Headers).ToList();
 
-                var ordersByteArray = await responses[0].Items.DownstreamResponse().Content.ReadAsByteArrayAsync();
-                var ordersData = Decompress(ordersByteArray);
-                var orders = ConvertToJson(ordersData).ToObject<DataCollection<OrderDto>>();
+                var orders = await responses[0].Items.DownstreamResponse().Content.ReadFromJsonAsync<DataCollection<OrderDto>>();
+                //var ordersData = Decompress(ordersByteArray);
+                //var orders = ConvertToJson(ordersData).ToObject<DataCollection<OrderDto>>();
 
-                var clientsByteArray = await responses[1].Items.DownstreamResponse().Content.ReadAsByteArrayAsync();
-                var clientsData = Decompress(clientsByteArray);
-                var clients = ConvertToJson(clientsData).ToObject<DataCollection<ClientDto>>();
+                var clients = await responses[1].Items.DownstreamResponse().Content.ReadFromJsonAsync<DataCollection<ClientDto>>();
+                //var clientsData = Decompress(clientsByteArray);
+                //var clients = ConvertToJson(clientsData).ToObject<DataCollection<ClientDto>>();
 
                 foreach (var order in orders.Items)
                 {
@@ -43,7 +42,8 @@ namespace Gateway.Api.Aggregators
 
                 var stringContent = new StringContent(JsonConvert.SerializeObject(orders), Encoding.UTF8, "application/json");
 
-                return new DownstreamResponse(stringContent, HttpStatusCode.OK, headers, "OK");
+                //return new DownstreamResponse(stringContent, HttpStatusCode.OK, headers, "OK");
+                return new DownstreamResponse(stringContent, HttpStatusCode.OK, new List<KeyValuePair<string, IEnumerable<string>>>(), "OK");
             }
             catch (Exception ex)
             {

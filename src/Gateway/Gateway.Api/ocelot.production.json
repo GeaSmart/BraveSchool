@@ -77,16 +77,16 @@
           "Port": 443
         }
       ],
-      "AddHeadersToRequest": {
-        "AccessToken": "Claims[access_token] > value[0] > |"
-      },
-      "DelegatingHandlers": [
-        "HeaderDelegatingHandler"
-      ],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
-        "AllowedScopes": []
-      },
+      //"AddHeadersToRequest": {
+      //  "AccessToken": "Claims[access_token] > value[0] > |"
+      //},
+      //"DelegatingHandlers": [
+      //  "HeaderDelegatingHandler"
+      //],
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "Bearer",
+      //  "AllowedScopes": []
+      //},
       "UpstreamPathTemplate": "/clients{everything}",
       "UpstreamhttpsMethod": [ "Get" ],
       "Key": "clients-list"
@@ -115,16 +115,16 @@
           "Port": 443
         }
       ],
-      "AddHeadersToRequest": {
-        "Authorization": "Claims[access_token] > value[0] > |"
-      },
-      "DelegatingHandlers": [
-        "HeaderDelegatingHandler"
-      ],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
-        "AllowedScopes": []
-      },
+      //"AddHeadersToRequest": {
+      //  "Authorization": "Claims[access_token] > value[0] > |"
+      //},
+      //"DelegatingHandlers": [
+      //  "HeaderDelegatingHandler"
+      //],
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "Bearer",
+      //  "AllowedScopes": []
+      //},
       "UpstreamPathTemplate": "/orders",
       "UpstreamhttpsMethod": [ "Get", "Post" ],
       "Key": "orders-list"
