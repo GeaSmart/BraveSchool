@@ -1,8 +1,12 @@
 using Gateway.Api.Aggregators;
+using Gateway.Api.Filters;
+using Microsoft.ApplicationInsights.TraceListener;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Ocelot.Values;
+using System.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +19,15 @@ builder.Services.AddOcelot()
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+    {
+        options.Filters.Add(typeof(ExceptionFilter));
+    });
+
+//application insights for azure debugging
+builder.Services.AddApplicationInsightsTelemetry(builder.Configuration["ApplicationInsights:ConnectionString"]);
+Trace.Listeners.Add(new ApplicationInsightsTraceListener());
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
