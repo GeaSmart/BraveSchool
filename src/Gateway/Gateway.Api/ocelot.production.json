@@ -77,6 +77,10 @@
           "Port": 443
         }
       ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
       "UpstreamPathTemplate": "/clients{everything}",
       "UpstreamhttpsMethod": [ "Get"],
       "Key": "clients-list"
@@ -105,6 +109,10 @@
           "Port": 443
         }
       ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
       "UpstreamPathTemplate": "/orders",
       "UpstreamhttpsMethod": [ "Get", "Post" ],
       "Key": "orders-list"
