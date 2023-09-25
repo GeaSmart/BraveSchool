@@ -109,6 +109,9 @@
           "Port": 443
         }
       ],
+      "AddHeadersToRequest": {
+        "AccessToken": "Claims[AccessToken] > value[0] > |"
+      },
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
