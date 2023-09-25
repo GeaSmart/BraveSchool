@@ -77,12 +77,18 @@
           "Port": 443
         }
       ],
+      "AddHeadersToRequest": {
+        "AccessToken": "Claims[AccessToken] > value[0] > |"
+      },
+      "DelegatingHandlers": [
+        "HeaderDelegatingHandler"
+      ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
       },
       "UpstreamPathTemplate": "/clients{everything}",
-      "UpstreamhttpsMethod": [ "Get"],
+      "UpstreamhttpsMethod": [ "Get" ],
       "Key": "clients-list"
     },
     //-----------------------------------------------
@@ -112,6 +118,9 @@
       "AddHeadersToRequest": {
         "AccessToken": "Claims[AccessToken] > value[0] > |"
       },
+      "DelegatingHandlers": [
+        "HeaderDelegatingHandler"
+      ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
