@@ -14,6 +14,12 @@ namespace Gateway.Api.Aggregators
 {
     public class CustomAggregator : IDefinedAggregator
     {
+        private readonly ILogger<CustomAggregator> logger;
+
+        public CustomAggregator(ILogger<CustomAggregator> logger)
+        {
+            this.logger = logger;
+        }
         public async Task<DownstreamResponse> Aggregate(List<HttpContext> responses)
         {
 
@@ -41,6 +47,7 @@ namespace Gateway.Api.Aggregators
             }
             catch (Exception ex)
             {
+                logger.LogError(ex.Message);
                 return new DownstreamResponse(null, System.Net.HttpStatusCode.InternalServerError, header, null);
             }
 
