@@ -2,7 +2,7 @@
   "Routes": [
     //===================CATALOG=====================
     {
-      "DownstreamPathTemplate": "/products",
+      "DownstreamPathTemplate": "products",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -10,12 +10,12 @@
           "Port": 443
         }
       ],
-      "UpstreamPathTemplate": "/products",
+      "UpstreamPathTemplate": "products",
       "UpstreamhttpsMethod": [ "Get", "Post" ]
     },
     //-----------------------------------------------
     {
-      "DownstreamPathTemplate": "/products?page=1&take=500",
+      "DownstreamPathTemplate": "products?page=1&take=500",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -23,13 +23,13 @@
           "Port": 443
         }
       ],
-      "UpstreamPathTemplate": "/products{everything}",
+      "UpstreamPathTemplate": "products{everything}",
       "UpstreamhttpsMethod": [ "Get" ],
       "Key": "products-list"
     },
     //-----------------------------------------------
     {
-      "DownstreamPathTemplate": "/products/{id}",
+      "DownstreamPathTemplate": "products/{id}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -37,12 +37,12 @@
           "Port": 443
         }
       ],
-      "UpstreamPathTemplate": "/products/{id}",
+      "UpstreamPathTemplate": "products/{id}",
       "UpstreamhttpsMethod": [ "Get" ]
     },
     //-----------------------------------------------
     {
-      "DownstreamPathTemplate": "/stocks",
+      "DownstreamPathTemplate": "stocks",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -50,13 +50,13 @@
           "Port": 443
         }
       ],
-      "UpstreamPathTemplate": "/stocks",
+      "UpstreamPathTemplate": "stocks",
       "UpstreamhttpsMethod": [ "Put" ]
     },
 
     //===================CUSTOMER=====================
     {
-      "DownstreamPathTemplate": "/clients",
+      "DownstreamPathTemplate": "clients",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -64,12 +64,12 @@
           "Port": 443
         }
       ],
-      "UpstreamPathTemplate": "/clients",
+      "UpstreamPathTemplate": "clients",
       "UpstreamhttpsMethod": [ "Get", "Post" ]
     },
     //-----------------------------------------------
     {
-      "DownstreamPathTemplate": "/clients?page=1&take=500",
+      "DownstreamPathTemplate": "clients?page=1&take=500",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -77,13 +77,13 @@
           "Port": 443
         }
       ],
-      "UpstreamPathTemplate": "/clients{everything}",
+      "UpstreamPathTemplate": "clients{everything}",
       "UpstreamhttpsMethod": [ "Get"],
       "Key": "clients-list"
     },
     //-----------------------------------------------
     {
-      "DownstreamPathTemplate": "/clients/{id}",
+      "DownstreamPathTemplate": "clients/{id}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -91,13 +91,13 @@
           "Port": 443
         }
       ],
-      "UpstreamPathTemplate": "/clients/{id}",
+      "UpstreamPathTemplate": "clients/{id}",
       "UpstreamhttpsMethod": [ "Get" ]
     },
 
     //====================ORDER=======================
     {
-      "DownstreamPathTemplate": "/orders",
+      "DownstreamPathTemplate": "orders",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -105,13 +105,13 @@
           "Port": 443
         }
       ],
-      "UpstreamPathTemplate": "/orders",
+      "UpstreamPathTemplate": "orders",
       "UpstreamhttpsMethod": [ "Get", "Post" ],
       "Key": "orders-list"
     },
     //-----------------------------------------------
     {
-      "DownstreamPathTemplate": "/orders/{id}",
+      "DownstreamPathTemplate": "orders/{id}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -119,14 +119,14 @@
           "Port": 443
         }
       ],
-      "UpstreamPathTemplate": "/orders/{id}",
+      "UpstreamPathTemplate": "orders/{id}",
       "UpstreamhttpsMethod": [ "Get" ],
       "Key": "order-item"
     },
 
     //===================IDENTITY=====================
     {
-      "DownstreamPathTemplate": "/identity/signup",
+      "DownstreamPathTemplate": "identity/signup",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -134,12 +134,12 @@
           "Port": 443
         }
       ],
-      "UpstreamPathTemplate": "/identity/signup",
+      "UpstreamPathTemplate": "identity/signup",
       "UpstreamhttpsMethod": [ "Post" ]
     },
     //-----------------------------------------------
     {
-      "DownstreamPathTemplate": "/identity/login",
+      "DownstreamPathTemplate": "identity/login",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -147,12 +147,12 @@
           "Port": 443
         }
       ],
-      "UpstreamPathTemplate": "/identity/login",
+      "UpstreamPathTemplate": "identity/login",
       "UpstreamhttpsMethod": [ "Post" ]
     },
     //-----------------------------------------------
     {
-      "DownstreamPathTemplate": "/users",
+      "DownstreamPathTemplate": "users",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -160,12 +160,12 @@
           "Port": 443
         }
       ],
-      "UpstreamPathTemplate": "/users",
+      "UpstreamPathTemplate": "users",
       "UpstreamhttpsMethod": [ "Get" ]
     },
     //-----------------------------------------------
     {
-      "DownstreamPathTemplate": "/users/{id}",
+      "DownstreamPathTemplate": "users/{id}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -173,7 +173,7 @@
           "Port": 443
         }
       ],
-      "UpstreamPathTemplate": "/users/{id}",
+      "UpstreamPathTemplate": "users/{id}",
       "UpstreamhttpsMethod": [ "Get" ]
     }
   ],
