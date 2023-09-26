@@ -22,14 +22,11 @@ namespace Gateway.Api.Aggregators
             {
                 item.Product = products.Items.SingleOrDefault(x => x.ProductId == item.ProductId);
             }
-
             var jsonString = JsonConvert.SerializeObject(order, Formatting.Indented, new JsonConverter[] { new StringEnumConverter() });
-
             var stringContent = new StringContent(jsonString)
             {
                 Headers = { ContentType = new MediaTypeHeaderValue("application/json") }
             };
-
             return new DownstreamResponse(stringContent, HttpStatusCode.OK, new List<KeyValuePair<string, IEnumerable<string>>>(), "OK");
         }
     }

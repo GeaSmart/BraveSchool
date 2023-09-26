@@ -3,7 +3,6 @@ using Gateway.Api.Filters;
 using Microsoft.ApplicationInsights.TraceListener;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
-using Ocelot.Values;
 using System.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
