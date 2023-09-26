@@ -16,8 +16,8 @@ var ocelotConfigFile = builder.Environment.IsDevelopment() ? "ocelot.json" : "oc
 builder.Configuration.AddJsonFile(ocelotConfigFile, optional: false, reloadOnChange: true);
 builder.Services.AddOcelot()
     .AddSingletonDefinedAggregator<CustomAggregator>()
-    .AddSingletonDefinedAggregator<OrderFullAggregator>()
-    .AddDelegatingHandler<HeaderDelegatingHandler>();
+    .AddSingletonDefinedAggregator<OrderFullAggregator>();
+    //.AddDelegatingHandler<HeaderDelegatingHandler>();
 
 // Add services to the container.
 
