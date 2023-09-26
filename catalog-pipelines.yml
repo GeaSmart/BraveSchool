@@ -22,6 +22,13 @@ steps:
   inputs:
     script: 'dotnet ef migrations script -i -o $(Build.ArtifactStagingDirectory)\migrate.sql --project $(proyecto)'
 - task: DotNetCoreCLI@2
+  displayName: 'Tests'
+  inputs:
+    command: 'test'
+    projects: '**/*[Tt]est*/*.csproj'
+    publishTestResults: true
+    arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura'
+- task: DotNetCoreCLI@2
   displayName: 'Publishing App'
   inputs:
     command: 'publish'
