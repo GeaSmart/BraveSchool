@@ -30,9 +30,6 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-//console logging  
-builder.Logging.AddConsole();
-
 //Ocelot setting
 app.UseOcelot().Wait();
 

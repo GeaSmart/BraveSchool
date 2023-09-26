@@ -73,13 +73,6 @@ if (app.Environment.IsDevelopment())
         builder.Configuration.GetValue<int>("Papertrail:port")
     );
 }
-else
-{
-    loggerFactory.AddSyslog(
-        builder.Configuration.GetValue<string>("Papertrail:host"),
-        builder.Configuration.GetValue<int>("Papertrail:port")
-    );
-}
 
 app.UseAuthorization();
 app.UseAuthentication();
