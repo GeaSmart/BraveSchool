@@ -1,9 +1,6 @@
 using Gateway.Api.Aggregators;
 using Gateway.Api.Filters;
-using Gateway.Api.Handlers;
 using Microsoft.ApplicationInsights.TraceListener;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Ocelot.Values;
@@ -17,10 +14,8 @@ builder.Configuration.AddJsonFile(ocelotConfigFile, optional: false, reloadOnCha
 builder.Services.AddOcelot()
     .AddSingletonDefinedAggregator<CustomAggregator>()
     .AddSingletonDefinedAggregator<OrderFullAggregator>();
-    //.AddDelegatingHandler<HeaderDelegatingHandler>();
 
 // Add services to the container.
-
 builder.Services.AddControllers(options =>
     {
         options.Filters.Add(typeof(ExceptionFilter));

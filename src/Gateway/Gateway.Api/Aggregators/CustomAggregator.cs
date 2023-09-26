@@ -8,6 +8,7 @@ using Gateway.Api.Models;
 using Newtonsoft.Json.Linq;
 using System.IO.Compression;
 using System.Text;
+using System.Net.Http.Headers;
 
 namespace Gateway.Api.Aggregators
 {
@@ -40,35 +41,25 @@ namespace Gateway.Api.Aggregators
                     order.Client = clients.Items.FirstOrDefault(x => x.ClientId == order.ClientId);
                 }
 
-                var stringContent = new StringContent(JsonConvert.SerializeObject(orders), Encoding.UTF8, "application/json");
+                //var stringContent = new StringContent(JsonConvert.SerializeObject(orders), Encoding.UTF8, "application/json");
 
-                //return new DownstreamResponse(stringContent, HttpStatusCode.OK, headers, "OK");
+                //return new DownstreamResponse(stringContent, HttpStatusCode.OK, new List<KeyValuePair<string, IEnumerable<string>>>(), "OK");
+
+                var jsonString = JsonConvert.SerializeObject(orders, Formatting.Indented, new JsonConverter[] { new StringEnumConverter() });
+
+                var stringContent = new StringContent(jsonString)
+                {
+                    Headers = { ContentType = new MediaTypeHeaderValue("application/json") }
+                };
+
                 return new DownstreamResponse(stringContent, HttpStatusCode.OK, new List<KeyValuePair<string, IEnumerable<string>>>(), "OK");
+
             }
             catch (Exception ex)
             {
                 logger.LogError(ex.Message);
                 return new DownstreamResponse(null, System.Net.HttpStatusCode.InternalServerError, header, null);
             }
-
-            //var orders = await responses[0].Items.DownstreamResponse().Content.ReadFromJsonAsync<DataCollection<OrderDto>>();
-            //var clients = await responses[1].Items.DownstreamResponse().Content.ReadFromJsonAsync<DataCollection<ClientDto>>();
-
-            //foreach (var order in orders.Items)
-            //{
-            //    order.Client = clients.Items.FirstOrDefault(x => x.ClientId == order.ClientId);
-            //}
-
-            //var jsonString = JsonConvert.SerializeObject(orders, Formatting.Indented, new JsonConverter[] { new StringEnumConverter() });
-
-            //var stringContent = new StringContent(jsonString)
-            //{
-            //    Headers = { ContentType = new MediaTypeHeaderValue("application/json") }
-            //};
-
-            //return new DownstreamResponse(stringContent, HttpStatusCode.OK, new List<KeyValuePair<string, IEnumerable<string>>>(), "OK");
-
-
         }
 
         private static byte[] Decompress(byte[] data)
